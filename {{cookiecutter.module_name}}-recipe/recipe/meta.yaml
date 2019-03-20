@@ -1,0 +1,57 @@
+# Note: there are many handy hints in comments in this example -- remove them when you've finalized your recipe
+# The final recipe shouldn't contain any comments!
+
+{{ "{%" }} set version = "{{ cookiecutter.module_version }}" {{ "%}" }}
+
+package:
+  # Name shall be in lowercase!
+  name: {{ cookiecutter.module_name | lower }}
+{%- raw %}
+  version: "{{ version }}"
+{%- endraw %}
+
+source:
+  # Getting the source from an archive is the preferred way
+  # If required, you can use the git_url and git_rev instead
+  - url: https://github.com/epics-modules/{{ cookiecutter.module_name }}/archive/xxx.tar.gz
+    sha256: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    # sha256 is the prefered checksum -- you can get it for a file with:
+    # `openssl sha256 <file name>`.
+#  - git_url: https://github.com/epics-modules/{{ cookiecutter.module_name }}.git
+{%- raw %}
+#    git_rev: "v{{ version }}"
+{%- endraw %}
+  # Extra source files (Makefile, iocsh) should be copied under the ../src directory
+  - path: ../src
+
+
+build:
+  number: 0
+  run_exports:
+    - {{ "{{" }} pin_subpackage('{{ cookiecutter.module_name | lower }}', max_pin='x.x.x') {{ "}}" }}
+
+requirements:
+  build:
+{%- raw %}
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+{%- endraw %}
+  host:
+    - epics-base
+    - require
+
+test:
+  requires:
+    - run-iocsh
+  source_files:
+    - cmds/*.cmd
+  commands:
+    # Loading the module with -r is the most basic test that should be done
+    - run-iocsh -r {{ cookiecutter.module_name | lower }}
+    # Keep the following line only if you have a test command file
+    - run-iocsh cmds/test.cmd
+
+about:
+  home: {{ cookiecutter.module_home }}
+  license: EPICS Open License
+  summary: "{{ cookiecutter.summary }}"
