@@ -1,6 +1,6 @@
 # {{ cookiecutter.module_name }} conda recipe
 
-Home: {{ cookiecutter.module_home }}
+Home: "https://{{ cookiecutter.module_home }}/epics-modules/{{ cookiecutter.module_name }}"
 
 Package license: EPICS Open License
 

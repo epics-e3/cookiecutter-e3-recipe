@@ -13,7 +13,11 @@ package:
 source:
   # Getting the source from an archive is the preferred way
   # If required, you can use the git_url and git_rev instead
+{%- if cookiecutter.module_home == "github.com" %}
   - url: https://github.com/epics-modules/{{ cookiecutter.module_name }}/archive/xxx.tar.gz
+{%- elif cookiecutter.module_home == "gitlab.esss.lu.se" %}
+  - url: https://gitlab.esss.lu.se/epics-modules/{{ cookiecutter.module_name }}/-/archive/v{{ '{{' }} version {{ '}}' }}/{{ cookiecutter.module_name }}-v{{ '{{' }} version {{ '}}' }}.tar.gz
+{%- endif %}
     sha256: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
     # sha256 is the prefered checksum -- you can get it for a file with:
     # `openssl sha256 <file name>`.
@@ -52,7 +56,7 @@ test:
     - run-iocsh cmds/test.cmd
 
 about:
-  home: {{ cookiecutter.module_home }}
+  home: "https://{{ cookiecutter.module_home }}/epics-modules/{{ cookiecutter.module_name }}"
   license: EPICS Open License
   # Many licenses require the license statement to be distributed with the package.
   # The filename is relative to the source directory
