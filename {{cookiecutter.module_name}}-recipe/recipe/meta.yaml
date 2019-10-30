@@ -37,6 +37,7 @@ build:
 requirements:
   build:
 {%- raw %}
+    - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 {%- endraw %}
