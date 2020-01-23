@@ -28,7 +28,6 @@ source:
   # Extra source files (Makefile, iocsh) should be copied under the ../src directory
   - path: ../src
 
-
 build:
   number: 0
   run_exports:
@@ -36,8 +35,13 @@ build:
 
 requirements:
   build:
+    # Uncomment the following line to disable ppc64 cross-compilation
+    # Remove this line otherwise
+    # skip: True  # [ppc64]
 {%- raw %}
     - make
+    - perl
+    - tclx
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 {%- endraw %}
