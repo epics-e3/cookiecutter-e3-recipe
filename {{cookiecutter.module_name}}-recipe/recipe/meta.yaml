@@ -29,15 +29,16 @@ source:
   - path: ../src
 
 build:
+  # Uncomment the skip line to disable ppc64 cross-compilation
+  # Or use [not ppc64] to only compile for ppc64
+  # Remove this line otherwise
+  # skip: True  # [ppc64]
   number: 0
   run_exports:
     - {{ "{{" }} pin_subpackage('{{ cookiecutter.module_name | lower }}', max_pin='x.x.x') {{ "}}" }}
 
 requirements:
   build:
-    # Uncomment the following line to disable ppc64 cross-compilation
-    # Remove this line otherwise
-    # skip: True  # [ppc64]
 {%- raw %}
     - make
     - perl
