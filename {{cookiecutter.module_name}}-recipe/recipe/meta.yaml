@@ -35,7 +35,7 @@ build:
   # skip: True  # [ppc64]
   number: 0
   run_exports:
-    - {{ "{{" }} pin_subpackage('{{ cookiecutter.module_name | lower }}', max_pin='x.x.x') {{ "}}" }}
+    - {{ "{{" }} pin_subpackage('{{ cookiecutter.module_name | lower }}', max_pin='x.x.x.x') {{ "}}" }}
 
 requirements:
   build:
