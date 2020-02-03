@@ -18,7 +18,7 @@ source:
 {%- elif cookiecutter.module_home == "gitlab.esss.lu.se" %}
   - url: https://gitlab.esss.lu.se/epics-modules/{{ cookiecutter.module_name }}/-/archive/v{{ '{{' }} version {{ '}}' }}/{{ cookiecutter.module_name }}-v{{ '{{' }} version {{ '}}' }}.tar.gz
 {%- endif %}
-    sha256: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    sha256: <insert sha256 here>
     # sha256 is the prefered checksum -- you can get it for a file with:
     # `openssl sha256 <file name>`.
 #  - git_url: https://github.com/epics-modules/{{ cookiecutter.module_name }}.git
