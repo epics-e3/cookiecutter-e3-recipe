@@ -1,5 +1,10 @@
 # Note: there are many handy hints in comments in this example -- remove them when you've finalized your recipe
 # The final recipe shouldn't contain any comments!
+{%- if cookiecutter.module_home.startswith("https://github.com") %}
+{%- set module_home_git = "github" %}
+{%- else %}
+{%- set module_home_git = "gitlab" %}
+{%- endif %}
 
 {{ "{%" }} set version = "{{ cookiecutter.module_version }}" {{ "%}" }}
 
@@ -13,20 +18,22 @@ package:
 source:
   # Getting the source from an archive is the preferred way
   # If required, you can use the git_url and git_rev instead
-{%- if cookiecutter.module_home == "github.com" %}
-  - url: https://github.com/epics-modules/{{ cookiecutter.module_name }}/archive/xxx.tar.gz
-{%- elif cookiecutter.module_home == "gitlab.esss.lu.se" %}
-  - url: https://gitlab.esss.lu.se/epics-modules/{{ cookiecutter.module_name }}/-/archive/v{{ '{{' }} version {{ '}}' }}/{{ cookiecutter.module_name }}-v{{ '{{' }} version {{ '}}' }}.tar.gz
+{%- if module_home_git == "github" %}
+  - url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}/archive/xxx.tar.gz
+{%- elif module_home_git == "gitlab" %}
+  - url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}/-/archive/v{{ '{{' }} version {{ '}}' }}/{{ cookiecutter.module_name }}-v{{ '{{' }} version {{ '}}' }}.tar.gz
 {%- endif %}
     sha256: <insert sha256 here>
     # sha256 is the prefered checksum -- you can get it for a file with:
     # `openssl sha256 <file name>`.
-#  - git_url: https://github.com/epics-modules/{{ cookiecutter.module_name }}.git
+#  - git_url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}.git
 {%- raw %}
 #    git_rev: "v{{ version }}"
 {%- endraw %}
-  # Extra source files (Makefile, iocsh) should be copied under the ../src directory
+{%- if cookiecutter.module_kind == "Community" %}
+  # Extra source files (Makefile.E3, iocsh) should be copied under the ../src directory
   - path: ../src
+{%- endif %}
 
 build:
   # ppc64 cross-compilation is disabled by default
@@ -53,16 +60,14 @@ requirements:
 test:
   requires:
     - run-iocsh
-  source_files:
-    - cmds/*.cmd
+  files:
+    - test.cmd
   commands:
-    # Loading the module with -r is the most basic test that should be done
     - run-iocsh -r {{ cookiecutter.module_name | lower }}
-    # Keep the following line only if you have a test command file
-    - run-iocsh cmds/test.cmd
+    - run-iocsh test.cmd
 
 about:
-  home: "https://{{ cookiecutter.module_home }}/epics-modules/{{ cookiecutter.module_name }}"
+  home: "{{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}"
   license: EPICS Open License
   # Many licenses require the license statement to be distributed with the package.
   # The filename is relative to the source directory

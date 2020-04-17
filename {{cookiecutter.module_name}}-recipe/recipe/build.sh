@@ -1,12 +1,11 @@
 #!/bin/bash
 
-# LIBVERSION shall only include MAJOR.MINOR.PATCH for require
-LIBVERSION=$(echo ${PKG_VERSION}| cut -d'.' -f1-3)
+LIBVERSION=${PKG_VERSION}
 
 # Clean between variants builds
-make clean
+make -f Makefile.E3 clean
 
-make MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION}
-make MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} db
-make MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} install
+make -f Makefile.E3 MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION}
+make -f Makefile.E3 MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} db
+make -f Makefile.E3 MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} install
 
