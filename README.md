@@ -13,13 +13,13 @@ $ pip install --user cookiecutter
 Generate an Ansible role project:
 
 ```
-$ cookiecutter git+https://gitlab.esss.lu.se/ics-infrastructure/cookiecutter-e3-recipe.git
+$ cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-recipe.git
 ```
 
 As this is not easy to remember, you can add an alias in your `~/.bash_profile`:
 
 ```
-alias e3-recipe='cookiecutter git+https://gitlab.esss.lu.se/ics-infrastructure/cookiecutter-e3-recipe.git'
+alias e3-recipe='cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-recipe.git'
 ```
 
 ## Detailed instructions
