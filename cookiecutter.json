@@ -4,6 +4,7 @@
   "summary": "EPICS {{ cookiecutter.module_name }} module",
   "module_kind": [
     "ESS",
+    "ESS-WP12",
     "Community"
   ],
   "module_home": "https://gitlab.esss.lu.se/epics-modules",

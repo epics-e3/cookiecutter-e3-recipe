@@ -7,30 +7,20 @@
 {%- endif %}
 
 {{ "{%" }} set version = "{{ cookiecutter.module_version }}" {{ "%}" }}
+{{ "{%" }} set name = "{{ cookiecutter.module_name | lower }}" {{ "%}" }}
 
 package:
-  # Name shall be in lowercase!
-  name: {{ cookiecutter.module_name | lower }}
 {%- raw %}
+  name: "{{ name }}"
   version: "{{ version }}"
 {%- endraw %}
 
 source:
-  # Getting the source from an archive is the preferred way
-  # If required, you can use the git_url and git_rev instead
-{%- if module_home_git == "github" %}
-  - url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}/archive/xxx.tar.gz
-{%- elif module_home_git == "gitlab" %}
-  - url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}/-/archive/v{{ '{{' }} version {{ '}}' }}/{{ cookiecutter.module_name }}-v{{ '{{' }} version {{ '}}' }}.tar.gz
-{%- endif %}
-    sha256: <insert sha256 here>
-    # sha256 is the prefered checksum -- you can get it for a file with:
-    # `openssl sha256 <file name>`.
-#  - git_url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}.git
+  - git_url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}.git
 {%- raw %}
-#    git_rev: "v{{ version }}"
+    git_rev: "{{ version }}"
 {%- endraw %}
-{%- if cookiecutter.module_kind == "Community" %}
+{%- if cookiecutter.module_kind != "ESS" %}
   # Extra source files (Makefile.E3, iocsh) should be copied under the ../src directory
   - path: ../src
 {%- endif %}
@@ -54,7 +44,7 @@ requirements:
     - {{ compiler('cxx') }}
 {%- endraw %}
   host:
-    - epics-base
+    - epics-base 7
     - require
 
 test:
