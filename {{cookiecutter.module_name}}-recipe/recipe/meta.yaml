@@ -48,13 +48,12 @@ requirements:
     - require
 
 test:
+{%- raw %}
   requires:
     - run-iocsh
-  files:
-    - test.cmd
   commands:
-    - run-iocsh -r {{ cookiecutter.module_name | lower }}
-    - run-iocsh test.cmd
+    - run-iocsh -r {{ name }}
+{%- endraw %}
 
 about:
   home: "{{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}"
