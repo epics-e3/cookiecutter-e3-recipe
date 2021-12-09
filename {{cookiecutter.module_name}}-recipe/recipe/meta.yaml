@@ -18,7 +18,7 @@ package:
 source:
   - git_url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}.git
 {%- raw %}
-    git_rev: "{{ version }}"
+    git_rev: {{ version }}
 {%- endraw %}
 {%- if cookiecutter.module_kind != "ESS" %}
   # Extra source files (Makefile.E3, iocsh) should be copied under the ../src directory
