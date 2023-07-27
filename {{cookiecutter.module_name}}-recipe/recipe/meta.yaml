@@ -20,10 +20,8 @@ source:
 {%- raw %}
     git_rev: {{ version }}
 {%- endraw %}
-{%- if cookiecutter.module_kind != "ESS" %}
   # Extra source files (Makefile, iocsh) should be copied under the ../src directory
   - path: ../src
-{%- endif %}
 
 build:
   # ppc64 cross-compilation is disabled by default
