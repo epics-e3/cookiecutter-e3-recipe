@@ -3,9 +3,9 @@
 LIBVERSION=${PKG_VERSION}
 
 # Clean between variants builds
-make -f Makefile.E3 clean
+make -f {{cookiecutter.module_name}}.Makefile clean
 
-make -f Makefile.E3 MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION}
-make -f Makefile.E3 MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} db
-make -f Makefile.E3 MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} install
+make -f {{cookiecutter.module_name}}.Makefile MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION}
+make -f {{cookiecutter.module_name}}.Makefile MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} db_internal
+make -f {{cookiecutter.module_name}}.Makefile MODULE=${PKG_NAME} LIBVERSION=${LIBVERSION} install
 

@@ -2,11 +2,6 @@
   "company": "European Spallation Source ERIC",
   "module_name": "mymodule",
   "summary": "EPICS {{ cookiecutter.module_name }} module",
-  "module_kind": [
-    "ESS",
-    "ESS-WP12",
-    "Community"
-  ],
   "module_home": "https://gitlab.esss.lu.se/epics-modules",
   "module_version": "1.0.0"
 }
