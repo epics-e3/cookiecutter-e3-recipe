@@ -91,8 +91,3 @@ db:
 # 
 # SUBS=$(wildcard $(APPDB)/*.substitutions)
 # TMPS=$(wildcard $(APPDB)/*.template)
-
-
-vlibs:
-
-.PHONY: vlibs
