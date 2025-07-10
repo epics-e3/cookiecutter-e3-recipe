@@ -1,11 +1,5 @@
 # Note: there are many handy hints in comments in this example -- remove them when you've finalized your recipe
 # The final recipe shouldn't contain any comments!
-{%- if cookiecutter.module_home.startswith("https://github.com") %}
-{%- set module_home_git = "github" %}
-{%- else %}
-{%- set module_home_git = "gitlab" %}
-{%- endif %}
-
 {{ "{%" }} set version = "{{ cookiecutter.module_version }}" {{ "%}" }}
 {{ "{%" }} set name = "{{ cookiecutter.module_name | lower }}" {{ "%}" }}
 
