@@ -45,7 +45,7 @@ julabof25hl-recipe/
 │   ├── build.sh
 │   └── meta.yaml
 └── src
-    └── julabof25hl.Makefile
+    └── Makefile
 ```
 
 There are comments in the `meta.yaml` file with instructions about what to update.
