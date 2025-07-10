@@ -37,12 +37,11 @@ requirements:
 {%- raw %}
     - make
     - perl
-    - tclx
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 {%- endraw %}
   host:
-    - epics-base 7
+    - epics-base
     - require
 
 test:
