@@ -37,16 +37,6 @@ TEMPLATES += $(wildcard $(APPDB)/*.template)
 
 SCRIPTS += $(wildcard ../iocsh/*.iocsh)
 
-# Note that architecture-specific source files can be specified:
-#
-#     SOURCES_linux-x86_64 += ...
-#     SOURCES_linux
-#
-# These are also valid for many of the compile flags specified by e.g.
-#     CFLAGS CXXFLAGS CPPFLAGS
-# i.e.
-#     USR_CFLAGS_linux-x86_64 += ...
-
 # Same as with any source or header files, you can also use $SUBS and $TMPS to define
 # database files to be inflated (using MSI), e.g.
 #
