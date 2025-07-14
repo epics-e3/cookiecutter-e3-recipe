@@ -1,6 +1,6 @@
 # e3 conda recipe cookiecutter template
 
-[Cookiecutter](https://github.com/audreyr/cookiecutter) template for e3 conda recipes.
+[Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for e3 conda recipes.
 
 ## Quickstart
 
