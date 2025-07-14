@@ -18,10 +18,6 @@ source:
   - path: ../src
 
 build:
-  # ppc64 cross-compilation is disabled by default
-  # Remove the following line if you want the module to run on IOxOS
-  # Note that you could also use [not ppc64] to only compile for ppc64
-  skip: True  # [ppc64]
   number: 0
   run_exports:
     - {{ "{{" }} pin_subpackage('{{ cookiecutter.module_name | lower }}', max_pin='x.x.x.x') {{ "}}" }}
