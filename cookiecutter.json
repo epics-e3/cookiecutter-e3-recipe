@@ -4,6 +4,6 @@
   "summary": "EPICS {{ cookiecutter.module_name }} module",
   "module_license": null,
   "module_license_file": null,
-  "module_home": "https://gitlab.esss.lu.se/epics-modules",
+  "module_url": null,
   "module_version": null
 }

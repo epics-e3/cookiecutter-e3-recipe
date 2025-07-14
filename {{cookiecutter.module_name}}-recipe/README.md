@@ -1,6 +1,6 @@
 # {{ cookiecutter.module_name }} conda recipe
 
-Home: "{{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}"
+Home: "{{ cookiecutter.module_url }}"
 
 Package license: {{ cookiecutter.module_license }}
 

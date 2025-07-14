@@ -10,7 +10,7 @@ package:
 {%- endraw %}
 
 source:
-  - git_url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}.git
+  - git_url: {{ cookiecutter.module_url }}.git
 {%- raw %}
     git_rev: {{ version }}
 {%- endraw %}
@@ -42,7 +42,7 @@ test:
 {%- endraw %}
 
 about:
-  home: "{{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}"
+  home: "{{ cookiecutter.module_url }}"
   license: {{ cookiecutter.module_license }}
   # Many licenses require the license statement to be distributed with the package.
   # The filename is relative to the source directory
