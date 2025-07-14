@@ -29,9 +29,9 @@ build:
 requirements:
   build:
 {%- raw %}
-    - make
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make
 {%- endraw %}
   host:
     - epics-base
