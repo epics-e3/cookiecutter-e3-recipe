@@ -46,5 +46,5 @@ about:
   license: {{ cookiecutter.module_license }}
   # Many licenses require the license statement to be distributed with the package.
   # The filename is relative to the source directory
-  license_file: LICENSE
+  license_file: {{ cookiecutter.module_license_file }}
   summary: "{{ cookiecutter.summary }}"
