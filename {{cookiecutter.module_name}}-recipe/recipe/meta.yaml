@@ -30,7 +30,6 @@ requirements:
   build:
 {%- raw %}
     - make
-    - perl
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
 {%- endraw %}
