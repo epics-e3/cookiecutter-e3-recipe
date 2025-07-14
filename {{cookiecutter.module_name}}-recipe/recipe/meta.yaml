@@ -47,7 +47,7 @@ test:
 
 about:
   home: "{{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}"
-  license: EPICS Open License
+  license: {{ cookiecutter.module_license }}
   # Many licenses require the license statement to be distributed with the package.
   # The filename is relative to the source directory
   license_file: LICENSE

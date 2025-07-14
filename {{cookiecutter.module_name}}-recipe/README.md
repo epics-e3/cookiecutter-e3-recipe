@@ -2,7 +2,7 @@
 
 Home: "{{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}"
 
-Package license: EPICS Open License
+Package license: {{ cookiecutter.module_license }}
 
 Recipe license: BSD 3-Clause
 

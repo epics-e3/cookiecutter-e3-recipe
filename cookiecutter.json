@@ -2,6 +2,7 @@
   "company": "European Spallation Source ERIC",
   "module_name": "mymodule",
   "summary": "EPICS {{ cookiecutter.module_name }} module",
+  "module_license": "GPL2",
   "module_home": "https://gitlab.esss.lu.se/epics-modules",
   "module_version": "1.0.0"
 }
