@@ -20,7 +20,9 @@ source:
 build:
   number: 0
   run_exports:
-    - {{ "{{" }} pin_subpackage('{{ cookiecutter.module_name | lower }}', max_pin='x.x.x.x') {{ "}}" }}
+{%- raw %}
+    - {{ pin_subpackage('{{ name }}', max_pin='x.x.x.x') }}
+{%- endraw %}
 
 requirements:
   build:
