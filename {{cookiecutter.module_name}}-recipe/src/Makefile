@@ -73,18 +73,6 @@ SOURCES   += $(APPSRC)/{{ cookiecutter.module_name }}Main.cpp
 
 SCRIPTS += $(wildcard iocsh/*.iocsh)
 
-
-############################################################################
-#
-# If you have any .substitution files, then you should probably comment the
-# following db target and uncomment the one that follows.
-#
-############################################################################
-
-db: 
-
-.PHONY: db 
-
 # USR_DBFLAGS += -I . -I ..
 # USR_DBFLAGS += -I $(EPICS_BASE)/db
 # USR_DBFLAGS += -I $(APPDB)
