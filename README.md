@@ -1,6 +1,6 @@
 # e3 conda recipe cookiecutter template
 
-[Cookiecutter](https://github.com/audreyr/cookiecutter) template for e3 conda recipes.
+[Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for e3 conda recipes.
 
 ## Quickstart
 
@@ -45,7 +45,7 @@ julabof25hl-recipe/
 │   ├── build.sh
 │   └── meta.yaml
 └── src
-    └── julabof25hl.Makefile
+    └── Makefile
 ```
 
 There are comments in the `meta.yaml` file with instructions about what to update.

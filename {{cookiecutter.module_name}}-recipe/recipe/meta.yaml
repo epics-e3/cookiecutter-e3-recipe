@@ -1,11 +1,3 @@
-# Note: there are many handy hints in comments in this example -- remove them when you've finalized your recipe
-# The final recipe shouldn't contain any comments!
-{%- if cookiecutter.module_home.startswith("https://github.com") %}
-{%- set module_home_git = "github" %}
-{%- else %}
-{%- set module_home_git = "gitlab" %}
-{%- endif %}
-
 {{ "{%" }} set version = "{{ cookiecutter.module_version }}" {{ "%}" }}
 {{ "{%" }} set name = "{{ cookiecutter.module_name | lower }}" {{ "%}" }}
 
@@ -16,33 +8,28 @@ package:
 {%- endraw %}
 
 source:
-  - git_url: {{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}.git
+  - git_url: {{ cookiecutter.module_url }}.git
 {%- raw %}
     git_rev: {{ version }}
 {%- endraw %}
-  # Extra source files (Makefile, iocsh) should be copied under the ../src directory
   - path: ../src
 
 build:
-  # ppc64 cross-compilation is disabled by default
-  # Remove the following line if you want the module to run on IOxOS
-  # Note that you could also use [not ppc64] to only compile for ppc64
-  skip: True  # [ppc64]
   number: 0
   run_exports:
-    - {{ "{{" }} pin_subpackage('{{ cookiecutter.module_name | lower }}', max_pin='x.x.x.x') {{ "}}" }}
+{%- raw %}
+    - {{ pin_subpackage('{{ name }}', max_pin='x.x.x.x') }}
+{%- endraw %}
 
 requirements:
   build:
 {%- raw %}
-    - make
-    - perl
-    - tclx
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - make
 {%- endraw %}
   host:
-    - epics-base 7
+    - epics-base
     - require
 
 test:
@@ -54,9 +41,7 @@ test:
 {%- endraw %}
 
 about:
-  home: "{{ cookiecutter.module_home }}/{{ cookiecutter.module_name }}"
-  license: EPICS Open License
-  # Many licenses require the license statement to be distributed with the package.
-  # The filename is relative to the source directory
-  license_file: LICENSE
+  home: "{{ cookiecutter.module_url }}"
+  license: {{ cookiecutter.module_license }}
+  license_file: {{ cookiecutter.module_license_file }}
   summary: "{{ cookiecutter.summary }}"
