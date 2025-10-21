@@ -1,4 +1,7 @@
+O.*
+*~
 *.swp
+*.swo
 .DS_Store
-pkg
-.vscode
+.vscode/
+.idea/
