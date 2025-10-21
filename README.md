@@ -4,22 +4,8 @@
 
 ## Quickstart
 
-Install the latest Cookiecutter if you haven't installed it yet:
-
 ```
 $ pip install --user cookiecutter
-```
-
-Generate an Ansible role project:
-
-```
-$ cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-recipe.git
-```
-
-As this is not easy to remember, you can add an alias in your `~/.bash_profile`:
-
-```
-alias e3-recipe='cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-recipe.git'
 ```
 
 ## Detailed instructions
@@ -39,8 +25,8 @@ This creates the following recipe:
 
 ```
 julabof25hl-recipe/
+├── .gitlab-ci.yml
 ├── LICENSE
-├── README.md
 ├── recipe
 │   ├── build.sh
 │   └── meta.yaml
@@ -48,10 +34,10 @@ julabof25hl-recipe/
     └── Makefile
 ```
 
-There are comments in the `meta.yaml` file with instructions about what to update.
+The minimal `Makefile` template includes only the required lines to use `require`'s build interface.
+Add variables (`SOURCES`, `HEADERS`, `DBDS`, `TEMPLATES`, `SCRIPTS`, etc.) and extra files under the `src` directory as needed.
 
-The `Makefile` required to build the module is part of the recipe repository.
-The template provided should be updated. Extra files can be added under the `src` directory if needed.
+See https://e3.pages.ess.eu for further instructions.
 
 ## License
 
