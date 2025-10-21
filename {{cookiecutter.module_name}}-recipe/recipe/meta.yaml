@@ -1,16 +1,16 @@
 {{ "{%" }} set version = "{{ cookiecutter.module_version }}" {{ "%}" }}
-{{ "{%" }} set name = "{{ cookiecutter.module_name | lower }}" {{ "%}" }}
+{{ "{%" }} set name = "{{ cookiecutter.module_name }}" {{ "%}" }}
 
 package:
 {%- raw %}
-  name: "{{ name }}"
+  name: "{{ name|lower }}"
   version: "{{ version }}"
 {%- endraw %}
 
 source:
-  - git_url: {{ cookiecutter.module_url }}.git
 {%- raw %}
-    git_rev: {{ version }}
+  - url: {{ cookiecutter.module_url }}/-/archive/{{ version }}/{{ name }}-{{ version }}.tar.gz
+    sha256: ""
 {%- endraw %}
   - path: ../src
 
@@ -18,15 +18,16 @@ build:
   number: 0
   run_exports:
 {%- raw %}
-    - {{ pin_subpackage('{{ name }}', max_pin='x.x.x.x') }}
+    - {{ pin_subpackage(name|lower, max_pin='x.x.x') }}
 {%- endraw %}
 
 requirements:
   build:
 {%- raw %}
-    - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - {{ stdlib('c') }}
     - make
+    - perl
 {%- endraw %}
   host:
     - epics-base
@@ -37,7 +38,7 @@ test:
   requires:
     - run-iocsh
   commands:
-    - run-iocsh -r {{ name }}
+    - run-iocsh -r {{ name|lower }}
 {%- endraw %}
 
 about:
