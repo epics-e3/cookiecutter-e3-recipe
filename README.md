@@ -2,10 +2,16 @@
 
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for e3 conda recipes.
 
-## Quickstart
+## Install
 
-```
+```console
 $ pip install --user cookiecutter
+```
+
+## Usage
+
+```console
+$ cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-ioc.git
 ```
 
 ## Detailed instructions
@@ -13,7 +19,7 @@ $ pip install --user cookiecutter
 To create the recipe for julabof25hl:
 
 ```
-$ e3-recipe
+$ cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-ioc.git
 company [European Spallation Source ERIC]:
 module_name [mymodule]: julabof25hl
 summary [EPICS julabof25hl module]:
