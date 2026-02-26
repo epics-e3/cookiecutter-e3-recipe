@@ -2,7 +2,7 @@
 
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for e3 conda recipes.
 
-Requires Python 3.7+.
+Requires Python 3.10+.
 
 ## Install
 
