@@ -1,6 +1,6 @@
 {
   "module_name": null,
-  "summary": "EPICS {{ cookiecutter.module_name }} module",
+  "summary": null,
   "module_license": null,
   "module_license_file": null,
   "module_url": null,
