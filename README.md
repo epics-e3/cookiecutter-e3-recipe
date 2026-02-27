@@ -2,49 +2,22 @@
 
 [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for e3 conda recipes.
 
+Requires Python 3.10+.
+
 ## Install
 
 ```console
-$ pip install --user cookiecutter
+$ pip install cookiecutter
 ```
 
 ## Usage
 
 ```console
-$ cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-ioc.git
+$ cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-recipe.git
 ```
 
-## Detailed instructions
-
-To create the recipe for julabof25hl:
-
-```
-$ cookiecutter git+https://gitlab.esss.lu.se/ics-cookiecutter/cookiecutter-e3-ioc.git
-company [European Spallation Source ERIC]:
-module_name [mymodule]: julabof25hl
-summary [EPICS julabof25hl module]:
-module_home [https://gitlab.esss.lu.se/epics-modules]:
-module_version [1.0.0]: 0.1.17
-```
-
-This creates the following recipe:
-
-```
-julabof25hl-recipe/
-├── .gitlab-ci.yml
-├── LICENSE
-├── recipe
-│   ├── build.sh
-│   └── meta.yaml
-└── src
-    └── Makefile
-```
-
-The minimal `Makefile` template includes only the required lines to use `require`'s build interface.
-Add variables (`SOURCES`, `HEADERS`, `DBDS`, `TEMPLATES`, `SCRIPTS`, etc.) and extra files under the `src` directory as needed.
-
-See https://e3.pages.ess.eu for further instructions.
+Scaffolds an EPICS module recipe (meta.yaml, build script, src layout, GitLab CI). See [e3.pages.ess.eu](https://e3.pages.ess.eu) to populate and build.
 
 ## License
 
-BSD 3-clause license
+[BSD 3-Clause](LICENSE)
