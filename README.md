@@ -16,7 +16,7 @@ $ pip install cookiecutter
 $ cookiecutter git+https://github.com/epics-e3/cookiecutter-e3-recipe.git
 ```
 
-Scaffolds an EPICS module recipe (meta.yaml, build script, src layout). See [epics-e3.github.io](https://epics-e3.github.io) to populate and build.
+Scaffolds an e3 module recipe (meta.yaml, build script, src layout). See [epics-e3.github.io](https://epics-e3.github.io) to populate and build.
 
 ## License
 
