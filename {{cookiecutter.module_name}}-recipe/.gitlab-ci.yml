@@ -1,4 +1,0 @@
----
-include:
-  - project: 'ics-infrastructure/gitlab-ci-yml'
-    file: 'E3CondaBuild.gitlab-ci.yml'
